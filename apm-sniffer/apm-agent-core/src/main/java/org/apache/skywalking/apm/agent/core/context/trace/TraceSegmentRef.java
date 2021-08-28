@@ -191,4 +191,8 @@ public class TraceSegmentRef {
         CROSS_PROCESS,
         CROSS_THREAD
     }
+
+    public ID getTraceSegmentId() {
+        return traceSegmentId;
+    }
 }

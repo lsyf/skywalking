@@ -84,7 +84,7 @@ public class ContextManager implements BootService {
         if (segment == null) {
             return "N/A";
         } else {
-            return segment.getReadableGlobalTraceId();
+            return segment.getReadableGlobalTraceIdAndSegmentId();
         }
     }
 

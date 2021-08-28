@@ -22,6 +22,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
+
+import com.google.common.base.Joiner;
 import org.apache.skywalking.apm.agent.core.boot.ServiceManager;
 import org.apache.skywalking.apm.agent.core.conf.Config;
 import org.apache.skywalking.apm.agent.core.conf.RemoteDownstreamConfig;
@@ -293,6 +295,14 @@ public class TracingContext implements AbstractTracerContext {
     @Override
     public String getReadableGlobalTraceId() {
         return segment.getRelatedGlobalTraces().get(0).toString();
+    }
+
+    @Override
+    public String getReadableGlobalTraceIdAndSegmentId() {
+        return Joiner.on("|").join(
+                segment.getRelatedGlobalTraces().get(0).toString(),
+                segment.hasRef() ? segment.getRefs().get(0).getTraceSegmentId().encode() : "",
+                segment.getTraceSegmentId().toString());
     }
 
     /**

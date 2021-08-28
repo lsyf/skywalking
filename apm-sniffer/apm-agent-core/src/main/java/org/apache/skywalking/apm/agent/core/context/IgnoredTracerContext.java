@@ -62,6 +62,11 @@ public class IgnoredTracerContext implements AbstractTracerContext {
     }
 
     @Override
+    public String getReadableGlobalTraceIdAndSegmentId() {
+        return "[Ignored Trace]";
+    }
+
+    @Override
     public AbstractSpan createEntrySpan(String operationName) {
         stackDepth++;
         return NOOP_SPAN;
