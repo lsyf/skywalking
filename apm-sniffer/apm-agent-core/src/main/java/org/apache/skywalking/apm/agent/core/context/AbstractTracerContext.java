@@ -61,6 +61,7 @@ public interface AbstractTracerContext {
      * @return the string represents the id.
      */
     String getReadablePrimaryTraceId();
+    String getReadablePrimaryTraceIdWithRelation();
 
     /**
      * Get the current segment id, if needEnhance. How to build, depends on the implementation.

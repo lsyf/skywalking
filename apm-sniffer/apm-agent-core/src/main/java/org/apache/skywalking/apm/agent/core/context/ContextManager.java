@@ -74,7 +74,7 @@ public class ContextManager implements BootService {
      */
     public static String getGlobalTraceId() {
         AbstractTracerContext context = CONTEXT.get();
-        return Objects.nonNull(context) ? context.getReadablePrimaryTraceId() : EMPTY_TRACE_CONTEXT_ID;
+        return Objects.nonNull(context) ? context.getReadablePrimaryTraceIdWithRelation() : EMPTY_TRACE_CONTEXT_ID;
     }
 
     /**

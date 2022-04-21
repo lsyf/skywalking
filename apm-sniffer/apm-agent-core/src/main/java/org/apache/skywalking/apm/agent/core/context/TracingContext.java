@@ -244,6 +244,14 @@ public class TracingContext implements AbstractTracerContext {
         return getPrimaryTraceId().getId();
     }
 
+    @Override
+    public String getReadablePrimaryTraceIdWithRelation() {
+        TraceSegmentRef parentSegment = segment.getRef();
+        return getReadablePrimaryTraceId()
+                + "|" + (parentSegment == null ? "" : parentSegment.getTraceSegmentId())
+                + "|" + getSegmentId();
+    }
+
     private DistributedTraceId getPrimaryTraceId() {
         return segment.getRelatedGlobalTrace();
     }

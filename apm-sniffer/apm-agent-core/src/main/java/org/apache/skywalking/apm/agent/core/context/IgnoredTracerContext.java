@@ -68,6 +68,10 @@ public class IgnoredTracerContext implements AbstractTracerContext {
     public String getReadablePrimaryTraceId() {
         return IGNORE_TRACE;
     }
+    @Override
+    public String getReadablePrimaryTraceIdWithRelation() {
+        return IGNORE_TRACE;
+    }
 
     @Override
     public String getSegmentId() {
